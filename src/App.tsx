@@ -1034,11 +1034,13 @@ function GameApp() {
                                         <button
                                             key={item.id}
                                             onClick={() => handlePickItem(item)}
-                                            className="bg-white border-2 border-gray-200 rounded-2xl p-4 hover:shadow-lg hover:border-blue-300 active:bg-blue-50 transition-all flex flex-col items-center justify-center gap-3 h-48 md:h-60"
+                                            className="bg-white border-2 border-gray-200 rounded-2xl p-4 hover:shadow-lg hover:border-blue-300 active:bg-blue-50 transition-all flex flex-col items-center justify-between gap-3 h-full min-h-[12rem]"
                                         >
                                             <ItemDisplay item={item} size="lg" />
-                                            <span className="font-bold text-gray-700 text-center text-xl line-clamp-2 leading-tight">{item.name}</span>
-                                            <span className="text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full hidden md:inline-block">{item.category}</span>
+                                            <div className="flex flex-col items-center gap-2 w-full flex-1 justify-center">
+                                                <span className="font-bold text-gray-700 text-center text-lg leading-tight w-full break-words">{item.name}</span>
+                                                <span className="text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full hidden md:inline-block whitespace-nowrap">{item.category}</span>
+                                            </div>
                                         </button>
                                     ))}
                                     {filteredInventory.length === 0 && (
