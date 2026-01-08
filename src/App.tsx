@@ -8,7 +8,7 @@ class ErrorBoundary extends Component<{ children: React.ReactNode }, { hasError:
         this.state = { hasError: false };
     }
 
-    static getDerivedStateFromError(error: any) {
+    static getDerivedStateFromError(_: any) {
         return { hasError: true };
     }
 
@@ -314,8 +314,8 @@ function GameApp() {
     const handlePickItem = (item: any) => {
         if (!activeOrderId || !activeOrder) return;
         const neededItems = activeOrder.items;
-        const alreadyPickedCount = pickedItems.filter(i => i.id === item.id).length;
-        const neededCount = neededItems.filter(i => i.id === item.id).length;
+        const alreadyPickedCount = pickedItems.filter((i: any) => i.id === item.id).length;
+        const neededCount = neededItems.filter((i: any) => i.id === item.id).length;
         if (alreadyPickedCount < neededCount) {
             setPickedItems([...pickedItems, item]);
             if (pickedItems.length + 1 === neededItems.length) showFeedback("撿貨完成！請打包", "success");
